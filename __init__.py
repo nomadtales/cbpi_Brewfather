@@ -31,12 +31,13 @@ def brewfather_background_task(api):
           "id": api_id
         }
         
+        # Changed so that it matches my Fermenter Configuration in CraftBeerPi3
         data = {
           "name": fermenter.name,
           "beer": fermenter.brewname,
-          "temp": cbpi.get_sensor_value(fermenter.sensor), 
-          "aux_temp": cbpi.get_sensor_value(fermenter.sensor2), 
-          "ext_temp": cbpi.get_sensor_value(fermenter.sensor3), 
+          "temp": cbpi.get_sensor_value(fermenter.sensor3), 
+          "aux_temp": cbpi.get_sensor_value(fermenter.sensor), 
+          "ext_temp": cbpi.get_sensor_value(fermenter.sensor2), 
           "temp_unit": cbpi.get_config_parameter("unit", "C")
         }
 
