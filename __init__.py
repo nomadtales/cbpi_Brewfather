@@ -14,8 +14,8 @@ def bf_api_id():
   else:
     return api_id
 
-
-@cbpi.backgroundtask(key="brewfather_task", interval=900)
+# interval in seconds
+@cbpi.backgroundtask(key="brewfather_task", interval=905)
 def brewfather_background_task(api):
   api_id = bf_api_id()
   if api_id == "":
