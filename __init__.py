@@ -72,11 +72,13 @@ def brewfather_background_task(api):
   try:
  
     log("uri: %s, Payload: %s" % (uri, json.dumps(payload)))
+    cbpi.notify("uri: %s, Payload: %s" % (uri, json.dumps(payload)))
 
     # send payload to BrewFather
     response = requests.post(uri, json=payload)
 
     log("Result %s" % response.text)
+    cbpi.notify("Result %s" % response.text)
 
     if response.status_code != 200:
       cbpi.notify("Brewfather Error", "Received unsuccessful response. Ensure API Id is correct. HTTP Error Code: " + str(response.status_code), type="danger", timeout=None)
